@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONRII 2026 - Congreso de Relaciones Internacionales</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#inicio" class="logo">CONRII 2026</a>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#quienes-somos">Quiénes Somos</a></li>
+                <li><a href="como-formar-parte">¿Cómo formar parte?</a></li>
+                <li><a href="#ejes">Ejes Temáticos</a></li>
+                <li><a href="#ubicacion">Ubicación</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <h1>2° Congreso Nacional<br>
+            5° Congreso Regional de Relaciones Internacionales</h1>
+        <p>El punto de encuentro global para el análisis de las Relaciones Internacionales.</p>
+        <p>Explora los desafíos geopolíticos, económicos y sociales del mañana.</p>
+    </section>
+
+    <section id="quienes-somos" class="content-section">
+        <h2>Quiénes Somos</h2>
+        <p>CONRII es una organización dedicada a fomentar el diálogo académico y diplomático...</p>
+    </section>
+    
+    <section id="ejes" class="content-section">
+        <h2>Ejes Temáticos</h2>
+        <div class="section-body">
+            <div class="grid-charlas">
+                <a href="geopolitica.html" class="boton-charla">Geopolítica Actual</a>
+                <a href="economia.html" class="boton-charla">Economía Global</a>
+                <a href="derechos-humanos.html" class="boton-charla">Derechos Humanos</a>
+                <a href="seguridad.html" class="boton-charla">Seguridad Internacional</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="como-formar-parte" class="content-section">
+        <h2>¿Cómo formar parte?</h2>
+        <p>La seleccion para formar parte del Congreso consta de dos partes:
+        <br>Envio de abstracts:
+        <br>Los resúmenes o abstract de los trabajos deberán ser enviados desde el 14 de julio 
+            hasta el 5 de septiembre del corriente año a la siguiente dirección de correo electrónico: 
+            congresoregionalrrii@fch.unicen.edu.ar, con asunto: ABSTRACT 2026. Serán 
+            presentados en un documento, con el encabezado: II CONGRESO NACIONAL Y V 
+            CONGRESO REGIONAL DE RELACIONES INTERNACIONALES, “TEMATICA CONRII 2026”. Deberán tener entre 100 y 300 palabras, incluirán el título del trabajo, nombre/s y apellido/s del autor/a o autores, junto con su filiación institucional además del eje 
+            al que hace referencia. De acuerdo a los resúmenes recibidos se organizarán las mesas temáticas. 
+        <br>Envio de trabajos finales:
+        </p>
+    </section>
+
+    <section id="ejes" class="content-section">
+        <h2>Ejes Temáticos</h2>
+        <div class="grid-charlas">
+            <a href="geopolitica.html" class="boton-charla">Geopolítica Actual</a>
+            <a href="economia.html" class="boton-charla">Economía Global</a>
+            <a href="derechos-humanos.html" class="boton-charla">Derechos Humanos</a>
+            <a href="seguridad.html" class="boton-charla">Seguridad Internacional</a>
+        </div>
+    </section>
+
+    <section id="ubicacion" class="content-section">
+        <h2>Ubicación</h2>
+        <p>Nos encontramos en la Facultad de Ciencias Políticas, Ciudad Autónoma de Buenos Aires.</p>
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0167132768406!2d-58.3841507!3d-34.6037389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa0525d80d29665%3A0xf69c0993f3503f73!2sTeatro%20Col%C3%B3n!5e0!3m2!1ses!2sar!4v1700000000000!5m2!1ses!2sar" 
+                width="60%" height="350" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <section id="contacto" class="content-section">
+        <h2>Contacto</h2>
+        <form action="mailto:info@conrii2026.com" method="post" enctype="text/plain">
+            <input type="text" name="nombre" placeholder="Tu Nombre" required>
+            <input type="email" name="email" placeholder="Tu Email" required>
+            <textarea name="mensaje" placeholder="Tu consulta aquí..."></textarea>
+            <button type="submit">Enviar Mensaje</button>
+        </form>
+        <p>O escríbenos directamente a: <strong>miradainternacional@gmail.com</strong></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 CONRII - Todos los derechos reservados.</p>
+    </footer>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const observerOptions = {
+            threshold: 0.2 // Se activa cuando se ve el 20% del título
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Cuando entra en pantalla: Añadir clase
+                    entry.target.classList.add('visible');
+                } else {
+                    // Cuando sale de pantalla: Quitar clase para que se reinicie
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, observerOptions);
+
+        const titulos = document.querySelectorAll('.content-section h2');
+        titulos.forEach(h2 => {
+            observer.observe(h2);
+        });
+    });
+</script>
+</body>
+</html>
