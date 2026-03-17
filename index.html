@@ -11,11 +11,10 @@
 
     <header>
         <nav>
-            <a href="#inicio" class="logo">CONRRII 2026</a>
+            <div class="logo">CONRRII 2026</div>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#quienes-somos">Quiénes Somos</a></li>
-                <li><a href="#inscribite">Inscribite</a></li>
                 <li><a href="#ejes">Ejes Temáticos</a></li>
                 <li><a href="#ubicacion">Ubicación</a></li>
                 <li><a href="#contacto">Contacto</a></li>
@@ -23,26 +22,33 @@
         </nav>
     </header>
 
-    <section id="inicio" class="hero">
-        <h1>CONRRII 2026</h1>
-        <p>El punto de encuentro global para el análisis de las Relaciones Internacionales.</p>
-        <p>Explora los desafíos geopolíticos, económicos y sociales del mañana.</p>
+   <section id="inicio" class="hero">
+    <h1>CONRII 2026</h1>
+    <p>El punto de encuentro global para el análisis de las Relaciones Internacionales.</p>
+    <a href="URL_DE_TU_GOOGLE_FORMS" target="_blank" class="cta-principal">Anotarse al Congreso</a>
     </section>
 
     <section id="quienes-somos" class="content-section">
         <h2>Quiénes Somos</h2>
         <p>CONRII es una organización dedicada a fomentar el diálogo académico y diplomático...</p>
+        <div class="documentos-container">
+    <a href="fundamentacion.pdf" target="_blank" class="boton-pdf">
+        <span class="icon">📄</span>
+        <span class="text">Fundamentación</span>
+    </a>
+    <a href="normas.pdf" target="_blank" class="boton-pdf">
+        <span class="icon">📜</span>
+        <span class="text">Normas</span>
+    </a>
+</div>
     </section>
 
-    <section id="inscribite" class="content-section">
-        <h2>Inscribite</h2>
-        <p>Para formar parte del Congreso, completá el siguiente formulario:</p>
-        <div class="grid-inscripcion">
-            <a href="LINK_AL_FORMULARIO_DE_INGRESO" target="_blank" class="boton-inscripcion">
-                <i class="fas fa-wpforms"></i> Formulario de Inscripcion
-            </a>
-        </div>
-    </section>
+    <section id="cronograma" class="content-section">
+    <h2>Cronograma</h2>
+     <div class="grid-cronograma">
+            <a href="cronograma.html" class="boton-cronograma">Ver Cronograma</a>
+    </div>
+</section>
 
     <section id="ejes" class="content-section">
         <h2>Ejes Temáticos</h2>
@@ -56,25 +62,49 @@
 
     <section id="ubicacion" class="content-section">
         <h2>Ubicación</h2>
-        <p>Nos encontramos en el Centro Cultural Universitario, Tandil, Yrigoyen 662.</p>
-        <div class="map-container">
-            <iframe 
-                src="https://maps.google.com/maps?q=CCU,+Yrigoyen+662,+Tandil&output=embed" 
-                width="60%" height="350" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe>
-        </div>
+        <section id="ubicacion" class="content-section">
+  
+    <div class="info-ubicacion">
+        <p><strong>Centro Cultural Universitario - UNICEN</strong></p>
+        <p>Gral. Pinto 399 (Esq. Yrigoyen), B7000 Tandil, Provincia de Buenos Aires</p>
+    </div>
+    
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.441864195751!2d-59.1383866234384!3d-37.33215230815197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95911f9905274d41%3A0x6b7720239276991e!2sCentro%20Cultural%20Universitario!5e0!3m2!1ses-419!2sar!4v1709700000000!5m2!1ses-419!2sar" 
+            width="100%" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+
+    <div class="boton-maps-container">
+        <a href="https://maps.app.goo.gl/uW7R7q7y7r8Y8Y8Y8" target="_blank" class="boton-abrir-maps">
+            ¿Cómo llegar? (Abrir en Google Maps)
+        </a>
+    </div>
     </section>
 
-    <section id="contacto" class="content-section">
-        <h2>Contacto</h2>
-        <form action="mailto:info@conrii2026.com" method="post" enctype="text/plain">
-            <input type="text" name="nombre" placeholder="Tu Nombre" required>
-            <input type="email" name="email" placeholder="Tu Email" required>
-            <textarea name="mensaje" placeholder="Tu consulta aquí..."></textarea>
-            <button type="submit">Enviar Mensaje</button>
-        </form>
-        <p>O escríbenos directamente a: <strong>miradainternacional@gmail.com</strong></p>
-    </section>
+   <section id="contacto" class="content-section">
+    <h2>Contacto</h2>
+    <p class="sub-contacto">¿Tienes dudas sobre las inscripciones o las ponencias? Escríbenos.</p>
+    
+    <form action= "https://formspree.io/f/xvzwakjj" method="POST" id="form-contacto">
+        <div class="input-group">
+            <input type="text" name="nombre" placeholder="Nombre completo" required>
+            <input type="email" name="_replyto" placeholder="Tu correo electrónico" required>
+        </div>
+        <input type="text" name="asunto" placeholder="Asunto (Ej: Inscripción, Ponencia)" required>
+        <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+        
+        <input type="hidden" name="_subject" value="Nueva consulta desde la web CONRII 2026">
+        
+        <button type="submit" class="boton-enviar">Enviar Mensaje</button>
+    </form>
+</section>
 
     <footer>
         <p>&copy; 2026 CONRII - Todos los derechos reservados.</p>
@@ -102,6 +132,21 @@
             observer.observe(h2);
         });
     });
+    function mostrarDia(diaNum) {
+    // Ocultar todos los contenedores
+    document.querySelectorAll('.timeline-container').forEach(cont => {
+        cont.style.display = 'none';
+    });
+    
+    // Quitar clase activa de los botones
+    document.querySelectorAll('.btn-dia').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // Mostrar el día seleccionado y activar su botón
+    document.getElementById('dia' + diaNum).style.display = 'block';
+    event.currentTarget.classList.add('active');
+}
 </script>
 </body>
 </html>
