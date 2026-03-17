@@ -9,21 +9,25 @@
 </head>
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">CONRRII 2026</div>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#quienes-somos">Quiénes Somos</a></li>
-                <li><a href="#ejes">Ejes Temáticos</a></li>
-                <li><a href="#ubicacion">Ubicación</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+   <header>
+    <nav>
+        <div class="logo">CONRRII 2026</div>
+        
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        
+        <ul id="nav-menu">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#quienes-somos">Quiénes Somos</a></li>
+            <li><a href="#ejes">Ejes Temáticos</a></li>
+            <li><a href="#cronograma">Cronograma</a></li>
+            <li><a href="#ubicacion">Ubicación</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
 
    <section id="inicio" class="hero">
-    <h1>CONRII 2026</h1>
+    <h1>CONRRII 2026</h1>
     <p>El punto de encuentro global para el análisis de las Relaciones Internacionales.</p>
     <a href="URL_DE_TU_GOOGLE_FORMS" target="_blank" class="cta-principal">Anotarse al Congreso</a>
     </section>
@@ -147,6 +151,17 @@
     document.getElementById('dia' + diaNum).style.display = 'block';
     event.currentTarget.classList.add('active');
 }
+function toggleMenu() {
+    const menu = document.getElementById('nav-menu');
+    menu.classList.toggle('active');
+}
+
+// Opcional: Cerrar el menú automáticamente al hacer clic en una sección
+document.querySelectorAll('#nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById('nav-menu').classList.remove('active');
+    });
+});
 </script>
 </body>
 </html>
