@@ -8,26 +8,25 @@
     <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
-    <header>
+   <header>
         <nav>
-            <div class="logo">CONRRII 2026</div>
-
-            <!-- BOTÓN HAMBURGUESA -->
-            <div class="menu-toggle">☰</div>
-
-            <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#quienes-somos">Quiénes Somos</a></li>
-            <li><a href="#ejes">Ejes Temáticos</a></li>
-            <li><a href="#ubicacion">Ubicación</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <a href="#inicio" class="logo">CONRRII 2026</a>
+            
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            
+            <ul id="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#quienes-somos">Quiénes Somos</a></li>
+                <li><a href="#ejes">Ejes Temáticos</a></li>
+                <li><a href="#cronograma">Cronograma</a></li>
+                <li><a href="#ubicacion">Ubicación</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
    <section id="inicio" class="hero">
-    <h1>CONRII 2026</h1>
+    <h1>CONRRII 2026</h1>
     <p>El punto de encuentro global para el análisis de las Relaciones Internacionales.</p>
     <a href="URL_DE_TU_GOOGLE_FORMS" target="_blank" class="cta-principal">Anotarse al Congreso</a>
     </section>
@@ -86,7 +85,7 @@
     </div>
 
     <div class="boton-maps-container">
-        <a href="https://maps.app.goo.gl/uW7R7q7y7r8Y8Y8Y8" target="_blank" class="boton-abrir-maps">
+        <a href="https://www.google.com/maps/search/?api=1&query=Centro+Cultural+Universitario+UNICEN+Tandil" target="_blank" class="boton-abrir-maps" target="_blank" class="boton-abrir-maps">
             ¿Cómo llegar? (Abrir en Google Maps)
         </a>
     </div>
@@ -151,6 +150,17 @@
     document.getElementById('dia' + diaNum).style.display = 'block';
     event.currentTarget.classList.add('active');
 }
+function toggleMenu() {
+    const menu = document.getElementById('nav-menu');
+    menu.classList.toggle('active');
+}
+
+// Opcional: Cerrar el menú automáticamente al hacer clic en una sección
+document.querySelectorAll('#nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById('nav-menu').classList.remove('active');
+    });
+});
 </script>
 </body>
 </html>

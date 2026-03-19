@@ -31,6 +31,7 @@ nav {
 }
 
 .logo {
+    text-decoration: none;
     font-size: 1.8rem;
     font-weight: 800;
     letter-spacing: 3px;
@@ -49,7 +50,6 @@ nav {
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    /* Cambiamos '0.8s linear' por '1.5s linear infinite' */
     animation: brilloMetalico 1.5s linear infinite;
 }
 
@@ -97,7 +97,7 @@ nav ul li a:hover {
 
 /* Secciones de Contenido */
 .content-section {
-  padding: 80px 10%;
+    padding: 80px 10%;
     text-align: center;
     border-bottom: 1px solid #f0f0f0; 
 }
@@ -481,51 +481,71 @@ footer {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive */
-
-   @media (max-width: 768px) {
-    /* 1. Header: Logo arriba en una sola línea y menú debajo */
-    header {
-        padding: 10px 0; /* Reducimos espacio vertical */
+/* Responsive (celular,tablet, etc) */
+@media (max-width: 768px) {
+    .hero h1 { 
+        font-size: 2.5rem; 
     }
 
-    nav {
-        flex-direction: column; /* Apila Logo y luego Menú */
-        gap: 10px;
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: 1px solid white;
+        color: white;
+        font-size: 1.4rem;
+        padding: 4px 10px;
+        cursor: pointer;
+        border: none;
+        /*Al poner position absolute a logo este directamente queda como unico elemento de nav y se posiciona a la izquierda*/
     }
 
-    .logo {
-        font-size: 1.8rem !important;
+    /* 1. Menú oculto por defecto */
+    nav ul { 
+        display: none; 
+        position: absolute;
+        top: 70px; 
+        left: 0;
+        width: 100%;
+        background-color: #2F7F88; 
+        padding: 20px 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    /* 2. Menú activo */
+    nav ul.active {
+        display: flex;
+        flex-direction: column; /* Esta es la propiedad clave que los apila */
+        align-items: center;    /* Asegura que los enlaces queden centrados */
+        gap: 20px;              /* Define el espacio vertical entre cada enlace */
+        animation: slideDown 0.3s ease-out;
+    }
+
+    nav ul li {
         width: 100%;
         text-align: center;
-        white-space: nowrap; /* FUERZA a que "CONRII 2026" esté en una sola línea */
-        margin-bottom: 5px;
-    }
-
-    /* 2. Menú de secciones prolijo */
-    nav ul {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 5px;
-        width: 95%;
-        margin: 0 auto;
+        margin: 0; /* Limpiamos márgenes raros */
     }
 
     nav ul li a {
-        font-size: 0.75rem !important;
-        padding: 5px 2px !important;
-        display: block;
-        text-align: center;
+        font-size: 1.1rem !important;
+        padding: 10px !important;
+        border: none !important;
+        display: block; /* Ayuda a que sea más fácil tocar con el dedo */
     }
 
-    /* 3. Ocultar el título principal CONRII 2026 solo en móviles */
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Ocultar el título principal CONRII 2026  */
     .hero h1 {
-        display: none; /* Desaparece el h1 en el inicio */
+        display: none; 
     }
 
-    /* 4. Ajustar el resto del texto y botón del inicio */
+    /* Ajustar el resto del texto y botón del inicio */
     .hero {
-        padding-top: 140px; /* Espacio para que el header no tape el texto */
+        padding-top: 140px; 
     }
 
     .hero p {
@@ -537,6 +557,105 @@ footer {
     .cta-principal {
         padding: 15px 30px;
         font-size: 1rem;
+    }
+
+    .logo {
+        font-size: 1.4rem; 
+        color: #ffffff; 
+        -webkit-text-fill-color: #ffffff; 
+        
+        background: linear-gradient(
+            to right, 
+            #ffffff 20%, 
+            #8e8e8e 40%, 
+            #ffffff 60%, 
+            #8e8e8e 80%, 
+            #ffffff 100%
+        );
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        
+        transition: -webkit-text-fill-color 0.3s ease, background-position 0.5s ease;
+        display: flex;
+        width: auto; 
+        white-space: nowrap;
+        -webkit-tap-highlight-color: transparent;
+        text-decoration: none;
+        
+        /*Hacemos que el logo quede en el centro de la pantalla en moviles*/
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center; 
+    }
+
+    .logo:active {
+        -webkit-text-fill-color: transparent; 
+        background-position: -200% center;
+    }
+
+    .boton-pdf {
+        width: 45%; /* Permite que no ocupen toda la pantalla y sean más compactos */
+        padding: 10px 5px; /* Relleno reducido */
+        min-width: auto; /* Anula el mínimo anterior para que puedan achicarse libremente */
+    }
+
+    /* Ajuste del tamaño del ícono (el emoji del documento) */
+    .boton-pdf .icon {
+        font-size: 1.8rem; /* Reducido desde 2.5rem */
+        margin-bottom: 8px;
+    }
+
+    /* Ajuste del tamaño de la palabra "Fundamentación" o "Normas" */
+    .boton-pdf .text {
+        font-size: 0.75rem; /* Letra más chica para que entre perfectamente */
+    }
+
+    .grid-charlas{
+        /*Estructura firme para que los botones se acomoden en cualquier dispositivo*/
+        display: grid;
+        /*Puede reducir el minmax si quiere que los botones sean más angostos */
+        /*Aca le decimos al navegador: calculá el ancho de la pantalla y acomodá tantos botones por fila como entren, 
+        pero asegurate de que ninguno sea más chico que 150px*/
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+        gap: 15px; /* Separación entre los cuadrados */
+        margin-top: 30px;
+    }
+
+    .boton-charla {
+        background-color: #2F7F88;
+        color: white;
+    
+        padding: 15px 10px; 
+        font-size: 0.95rem;
+        
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: transform 0.3s, background-color 0.3s;
+        border: 2px solid transparent;
+    }
+
+    .content-section h2{
+        font-size: 1.8rem;
+        font-weight: 1.8rem;
+    }
+
+    .grid-cronograma{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+        gap: 15px;
+        margin-top: 30px; 
+    }
+
+    .boton-cronograma{
+        padding: 10px 15px;
+    }
+}
+
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none;
     }
 }
 
