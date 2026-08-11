@@ -1,21 +1,76 @@
-/* Configuración General */
+@font-face {
+    font-family: 'Garet';
+    src: url('fuentes/Garet-Book.woff2') format('woff2'),
+         url('fuentes/Garet-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; 
+}
+
+@font-face {
+    font-family: 'Garet';
+    src: url('fuentes/Garet-Heavy.woff2') format('woff2'),
+         url('fuentes/Garet-Heavy.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap; 
+}
+
+@font-face {
+    font-family: 'Monterchi Serif';
+    src: url('fuentes/Monterchi-Book-trial.woff2') format('woff2'),
+         url('fuentes/Monterchi-Book-trial.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; 
+}
+
+@font-face {
+    font-family: 'Monterchi Serif';
+    src: url('fuentes/Monterchi-Extrabold-trial.woff2') format('woff2'),
+         url('fuentes/Monterchi-Extrabold-trial.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap; 
+}
+
+:root {
+    /* Tu paleta de colores oficial */
+    --color-fondo: #1b5a64;      
+    --color-secundario: #338390; 
+    --color-acento: #ffcc33;     
+    --color-blanco: #ffffff;     
+    --color-texto: #1a1a1a;      
+
+    /* Tus nuevas tipografías */
+    --fuente-titulos: 'Monterchi Serif', serif;
+    --fuente-textos: 'Garet', sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Le aplicamos Garet a toda la página por defecto */
+    font-family: var(--fuente-textos);
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: #ffffff;
-    color: #1a1a1a; /* Negro suave para el texto */
+    background-color: var(--color-blanco);
+    color: var(--color-texto);
     line-height: 1.6;
+    overflow-x: hidden; 
 }
 
-/* Navegación */
+/* Títulos con Monterchi Serif */
+h1, h2, h3, .logo {
+    font-family: var(--fuente-titulos);
+}
+
 header {
-    background-color: #2F7F88; /* Azul Marino */
-    color: white;
+    background-color: var(--color-fondo); 
+    color: var(--color-blanco);
     padding: 1rem 5%;
     position: fixed;
     width: 100%;
@@ -37,15 +92,16 @@ nav {
     letter-spacing: 3px;
     cursor: pointer;
     position: relative;
-    color: #ffffff;
+    color: var(--color-blanco);
     overflow: hidden;
 }
+
 .logo:hover {
     background: linear-gradient(
         to right, 
-        #ffffff 20%, 
-        #e3f306 40%, 
-        #ffffff 60%
+        var(--color-blanco) 20%, 
+        var(--color-acento) 40%, 
+        var(--color-blanco) 60%
     );
     background-size: 200% auto;
     -webkit-background-clip: text;
@@ -63,14 +119,14 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: var(--color-blanco);
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    color: #00a8ff; /* Azul claro al pasar el mouse */
+    color: var(--color-acento); 
 }
 
 /* Sección Hero (Inicio) */
@@ -666,4 +722,15 @@ footer {
     100% {
         background-position: 200% center;
     }
+}
+
+.numeros {
+    font-family: var(--fuente-textos) !important;
+    font-weight: normal !important; 
+    font-size: 0.85em; 
+    letter-spacing: 1px; 
+    margin-left: 8px; 
+    
+    /* engordamos el numero sin usar otra fuente */
+    -webkit-text-stroke: 0.8px currentColor; 
 }
