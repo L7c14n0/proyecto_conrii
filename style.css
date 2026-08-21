@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap'); 
 @font-face {
     font-family: 'Garet';
     src: url('fuentes/Garet-Book.woff2') format('woff2'),
@@ -35,15 +36,14 @@
 }
 
 :root {
-    /* Tu paleta de colores oficial */
+    /*paleta de colores oficial */
     --color-fondo: #1b5a64;      
     --color-secundario: #338390; 
     --color-acento: #ffcc33;     
     --color-blanco: #ffffff;     
     --color-texto: #1a1a1a;      
 
-    /* Tus nuevas tipografías */
-    --fuente-titulos: 'Monterchi Serif', serif;
+   --fuente-titulos: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     --fuente-textos: 'Garet', sans-serif;
 }
 
@@ -89,12 +89,11 @@ nav {
 
 #nav-menu {
     display: flex;
-    list-style: none; /* Quita las viñetas de la lista */
-    gap: 20px; /* Espacio entre cada botón */
-    margin-left: auto; /* Empuja el menú hacia la derecha */
-    margin-right: 70px; /* Le da un respiro antes del logo final */
-    font-size: 18px; /* Podés subirlo a 20px o 22px según te guste */
-    text-decoration: none; /* Asegura que no tengan la línea de subrayado */
+    align-items: center;
+    list-style: none;
+    gap: 1.8rem; /* Distancia uniforme e idéntica entre todos los elementos */
+    margin: 0 auto; /* Centra el grupo de enlaces dentro del espacio disponible */
+    padding: 0 20px;
 }
 
 .logo {
@@ -106,6 +105,7 @@ nav {
     position: relative;
     color: var(--color-blanco);
     overflow: hidden;
+    margin-left: -30px;
 }
 
 .logo:hover {
@@ -127,14 +127,15 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin-left: 0; /* Se elimina el margin fijo para usar flexbox gap */
 }
 
 /*Tamaño de los enlaces del header*/
 nav ul li a {
     color: var(--color-blanco);
     text-decoration: none;
-    font-size: 1.0rem;
+    font-size: 0.95rem;
+    white-space: nowrap; /* Evita que los nombres de menú se rompan en 2 líneas */
     transition: color 0.3s;
 }
 
@@ -144,9 +145,9 @@ nav ul li a:hover {
 
 /* Sección Hero (Inicio) */
 .hero {
-    height: 80vh;
+    height: 70vh; /* Reducido de 80vh para no ocupar tanta pantalla vertical */
     background: linear-gradient(rgba(0, 35, 68, 0.8), rgba(0, 35, 68, 0.8)), 
-                url('https://contrastemdp.com.ar/wp-content/uploads/2025/10/IMG-20251008-WA0008-1502x600.jpg'); /* Imagen de fondo diplomática */
+                url('https://contrastemdp.com.ar/wp-content/uploads/2025/10/IMG-20251008-WA0008-1502x600.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -155,13 +156,17 @@ nav ul li a:hover {
     align-items: center;
     text-align: center;
     color: white;
-    padding: 0 20px;
+    padding: 0 10%;
     margin-top: 60px;
 }
 
 .hero h1 {
-    font-size: 4rem;
-    margin-bottom: 15px;
+    font-size: 2.0rem; /* Reducido de 4rem a un tamaño equilibrado y elegante */
+    font-weight: 700;
+    line-height: 1.3;
+    max-width: 900px; /* Limita el ancho horizontal del texto */
+    margin-bottom: 20px;
+    letter-spacing: -1.0px;
 }
 
 /* Secciones de Contenido */
@@ -271,14 +276,17 @@ form button:hover {
 
 /* Estenedor del Mapa */
 .map-container {
-    margin: 30px auto;
-    max-width: 900px;
-    border: 5px solid #2F7F88; /* Marco Azul Marino */
+    margin: 20px auto;
+    max-width: 700px; /* Reducido de 900px */
+    border: 4px solid #2F7F88;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
+.map-container iframe {
+    height: 320px !important; /* Reducido de 450px */
+}
 .info-ubicacion {
     margin-bottom: 20px;
     font-size: 1.1rem;
@@ -374,6 +382,21 @@ form button:hover {
 @media (max-width: 600px) {
     .input-group {
         grid-template-columns: 1fr;
+    }
+
+    nav ul.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px; /* Espaciado constante vertical en móvil */
+        margin: 0;
+        padding: 20px 0;
+    }
+
+    nav ul li a {
+        font-size: 1.1rem !important;
+        padding: 10px !important;
+        white-space: normal;
     }
 }
 
@@ -551,70 +574,123 @@ form button:hover {
 }
 
 /* Responsive (celular,tablet, etc) */
-@media (max-width: 768px) {
-    .hero h1 { 
-        font-size: 2.5rem; 
+@media (max-width: 1024px) {
+    /* 1. Header: Logo a la izquierda, Hamburguesa a la derecha */
+    nav {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 10px 3% !important;
+        gap:10px !important; 
     }
 
+    /* 2. Logo visible a la izquierda con degradado amarillo/blanco */
+    .logo {
+       display: inline-block !important;
+        position: static !important;
+        transform: none !important;
+       font-size: clamp(1rem, 4vw, 1.3rem) !important;
+        white-space: nowrap;
+        text-align: left;
+        margin-left: 0 !important;
+        flex-shrink: 0;
+
+        /* Estado normal: Blanco puro y limpio */
+        color: #ffffff !important;
+        background: none !important;
+        -webkit-text-fill-color: #ffffff !important;
+        -webkit-background-clip: border-box !important;
+        transition: color 0.2s ease;
+        order:1; 
+    }
+
+    .logo:active,
+    .logo:focus {
+        background: linear-gradient(
+            to right, 
+            var(--color-blanco) 20%, 
+            var(--color-acento) 50%, 
+            var(--color-blanco) 80%
+        ) !important;
+        background-size: 200% auto !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        animation: brilloMetalico 0.6s ease forwards !important; 
+    }
+    /* 3. Botón menú hamburguesa a la derecha */
     .menu-toggle {
         display: block;
         background: none;
-        border: 1px solid white;
         color: white;
-        font-size: 1.4rem;
-        padding: 4px 10px;
+        font-size: 1.8rem;
+        padding: 5px 12px;
         cursor: pointer;
-        border: none;
-        /*Al poner position absolute a logo este directamente queda como unico elemento de nav y se posiciona a la izquierda*/
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 5px;
+        order: 3;
     }
 
-    /* 1. Menú oculto por defecto */
-    nav ul { 
+    /* 4. Menú desplegable oculto por defecto */
+    #nav-menu, nav ul { 
         display: none; 
         position: absolute;
-        top: 70px; 
+        top: 100%; 
         left: 0;
         width: 100%;
         background-color: #2F7F88; 
         padding: 20px 0;
         box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        margin: 0;
     }
 
-    /* 2. Menú activo */
-    nav ul.active {
-        display: flex;
-        flex-direction: column; /* Esta es la propiedad clave que los apila */
-        align-items: center;    /* Asegura que los enlaces queden centrados */
-        gap: 20px;              /* Define el espacio vertical entre cada enlace */
+    /* Menú desplegado al presionar hamburguesa */
+    #nav-menu.active, nav ul.active {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
         animation: slideDown 0.3s ease-out;
     }
 
     nav ul li {
         width: 100%;
         text-align: center;
-        margin: 0; /* Limpiamos márgenes raros */
+        margin: 0;
     }
 
     nav ul li a {
         font-size: 1.1rem !important;
         padding: 10px !important;
         border: none !important;
-        display: block; /* Ayuda a que sea más fácil tocar con el dedo */
+        display: block;
     }
 
-    @keyframes slideDown {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
+
+    .contenedor-contacto,
+    .logo-header {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        margin: 0 !important;
+        order: 2;
+        flex-shrink: 1;
+
     }
 
-    /* Ocultar el título principal CONRII 2026  */
-    .hero h1 {
-        display: none; 
+    .logo-header img,
+    .contenedor-contacto img {
+        max-height: clamp(28px, 6vw, 40px) !important; /* Ajusta el alto máximo para mantener el balance */
+        width: auto !important;
+        object-fit: contain;
     }
 
-    /* Ajustar el resto del texto y botón del inicio */
+    /* 6. Ajustes de la sección Hero e interfaces generales */
     .hero {
         padding-top: 140px; 
+    }
+
+    .hero h1 {
+        display: none; 
     }
 
     .hero p {
@@ -628,76 +704,33 @@ form button:hover {
         font-size: 1rem;
     }
 
-    .logo {
-        font-size: 1.4rem; 
-        color: #ffffff; 
-        -webkit-text-fill-color: #ffffff; 
-        
-        background: linear-gradient(
-            to right, 
-            #ffffff 20%, 
-            #8e8e8e 40%, 
-            #ffffff 60%, 
-            #8e8e8e 80%, 
-            #ffffff 100%
-        );
-        background-size: 200% auto;
-        -webkit-background-clip: text;
-        
-        transition: -webkit-text-fill-color 0.3s ease, background-position 0.5s ease;
-        display: flex;
-        width: auto; 
-        white-space: nowrap;
-        -webkit-tap-highlight-color: transparent;
-        text-decoration: none;
-        
-        /*Hacemos que el logo quede en el centro de la pantalla en moviles*/
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        text-align: center; 
-    }
-
-    .logo:active {
-        -webkit-text-fill-color: transparent; 
-        background-position: -200% center;
-    }
-
     .boton-pdf {
-        width: 45%; /* Permite que no ocupen toda la pantalla y sean más compactos */
-        padding: 10px 5px; /* Relleno reducido */
-        min-width: auto; /* Anula el mínimo anterior para que puedan achicarse libremente */
+        width: 45%;
+        padding: 10px 5%;
+        min-width: auto;
     }
 
-    /* Ajuste del tamaño del ícono (el emoji del documento) */
     .boton-pdf .icon {
-        font-size: 1.8rem; /* Reducido desde 2.5rem */
+        font-size: 1.8rem;
         margin-bottom: 8px;
     }
 
-    /* Ajuste del tamaño de la palabra "Fundamentación" o "Normas" */
     .boton-pdf .text {
-        font-size: 0.75rem; /* Letra más chica para que entre perfectamente */
+        font-size: 0.75rem;
     }
 
-    .grid-charlas{
-        /*Estructura firme para que los botones se acomoden en cualquier dispositivo*/
+    .grid-charlas {
         display: grid;
-        /*Puede reducir el minmax si quiere que los botones sean más angostos */
-        /*Aca le decimos al navegador: calculá el ancho de la pantalla y acomodá tantos botones por fila como entren, 
-        pero asegurate de que ninguno sea más chico que 150px*/
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-        gap: 15px; /* Separación entre los cuadrados */
+        gap: 15px;
         margin-top: 30px;
     }
 
     .boton-charla {
         background-color: #2F7F88;
         color: white;
-    
         padding: 15px 10px; 
         font-size: 0.95rem;
-        
         text-decoration: none;
         border-radius: 8px;
         font-weight: bold;
@@ -705,24 +738,23 @@ form button:hover {
         border: 2px solid transparent;
     }
 
-    .content-section h2{
+    .content-section h2 {
         font-size: 1.8rem;
-        font-weight: 1.8rem;
     }
 
-    .grid-cronograma{
+    .grid-cronograma {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
         gap: 15px;
         margin-top: 30px; 
     }
 
-    .boton-cronograma{
+    .boton-cronograma {
         padding: 10px 15px;
     }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
     .menu-toggle {
         display: none;
     }
@@ -737,15 +769,14 @@ form button:hover {
     }
 }
 
+
 .numeros {
-    font-family: var(--fuente-textos) !important;
-    font-weight: normal !important; 
-    font-size: 0.85em; 
-    letter-spacing: 1px; 
-    margin-left: 8px; 
-    
-    /* engordamos el numero sin usar otra fuente */
-    -webkit-text-stroke: 0.8px currentColor; 
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    font-size: 1em;
+    letter-spacing: inherit;
+    margin-left: 5px;
+    -webkit-text-stroke: initial;
 }
 
 .logo-header {
