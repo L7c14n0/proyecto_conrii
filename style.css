@@ -734,3 +734,26 @@ footer {
     /* engordamos el numero sin usar otra fuente */
     -webkit-text-stroke: 0.8px currentColor; 
 }
+
+.logo-header {
+  height: 60px; /* Dejamos el tamaño base que no rompe el header */
+  width: auto;
+  transform: scale(2.5); /* 2.0 significa que aumenta su tamaño un 100% */
+  transform-origin: right center; /* Esto asegura que crezca hacia la izquierda y no se salga de la pantalla por la derecha */
+}
+
+.logos-institucionales {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  gap: 30px; 
+  flex-wrap: wrap;
+  margin-top: 100px; /* Esto crea un espacio vacío de 50 píxeles por encima de los logos */
+  transform: scale(0.75);
+}
+
+.logo-hero {
+  height: 80px; /* Tamaño más grande para darles protagonismo institucional */
+  width: auto;
+  object-fit: contain; /* Evita que las imágenes se deformen */
+}
