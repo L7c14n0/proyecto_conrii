@@ -79,10 +79,22 @@ header {
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
+/* Configuracion estetica del header */
 nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between; /* Separa los extremos */
+    padding: 5px 20px;
+}
+
+#nav-menu {
+    display: flex;
+    list-style: none; /* Quita las viñetas de la lista */
+    gap: 20px; /* Espacio entre cada botón */
+    margin-left: auto; /* Empuja el menú hacia la derecha */
+    margin-right: 70px; /* Le da un respiro antes del logo final */
+    font-size: 18px; /* Podés subirlo a 20px o 22px según te guste */
+    text-decoration: none; /* Asegura que no tengan la línea de subrayado */
 }
 
 .logo {
@@ -118,10 +130,11 @@ nav ul li {
     margin-left: 20px;
 }
 
+/*Tamaño de los enlaces del header*/
 nav ul li a {
     color: var(--color-blanco);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1.0rem;
     transition: color 0.3s;
 }
 
@@ -148,7 +161,7 @@ nav ul li a:hover {
 
 .hero h1 {
     font-size: 4rem;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 /* Secciones de Contenido */
@@ -248,12 +261,12 @@ form button:hover {
 }
 
 /* Footer */
-footer {
-    background-color: #1a1a1a;
-    color: white;
-    text-align: center;
+.footer-principal {
+    background-color: #000;
+    color: #fff;
+    text-align: center; /* Centra el texto de derechos de autor */
     padding: 20px;
-    margin-top: 50px;
+    width: 100%;
 }
 
 /* Estenedor del Mapa */
@@ -742,18 +755,94 @@ footer {
   transform-origin: right center; /* Esto asegura que crezca hacia la izquierda y no se salga de la pantalla por la derecha */
 }
 
-.logos-institucionales {
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-  gap: 30px; 
-  flex-wrap: wrap;
-  margin-top: 100px; /* Esto crea un espacio vacío de 50 píxeles por encima de los logos */
-  transform: scale(0.75);
-}
-
 .logo-hero {
   height: 80px; /* Tamaño más grande para darles protagonismo institucional */
   width: auto;
   object-fit: contain; /* Evita que las imágenes se deformen */
+}
+/* --- ESTILOS PARA LAS PÁGINAS DE EJES --- */
+.header-eje {
+    margin-top: 100px; /* Compensa la barra del header fijo */
+    padding: 60px 10%;
+    background-color: #f4f8f9; /* Un fondo muy suave */
+    text-align: center;
+    border-bottom: 3px solid #2F7F88;
+}
+
+.header-eje h1 {
+    color: #1b5a64;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.contenido-eje {
+    padding: 50px 10%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+.contenido-eje p {
+    margin-bottom: 20px;
+    font-size: 1.15rem;
+    color: #444;
+}
+
+.contenido-eje h3 {
+    color: #2F7F88;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.lista-temas {
+    margin-left: 20px;
+}
+
+.lista-temas li {
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    color: #333;
+    padding-left: 10px;
+}
+
+.lista-temas li::marker {
+    color: #2F7F88;
+    font-weight: bold;
+}
+
+/* --- BOTONES DE NAVEGACIÓN ENTRE EJES --- */
+.navegacion-ejes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 40px 10% 60px 10%;
+}
+
+.btn-nav-eje {
+    padding: 12px 20px;
+    background-color: transparent;
+    color: #2F7F88;
+    border: 2px solid #2F7F88;
+    border-radius: 8px;
+    text-decoration: none !important;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-nav-eje:hover, .btn-nav-eje.activo {
+    background-color: #2F7F88;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+.btn-volver-inicio {
+    background-color: #ffcc33;
+    color: #1a1a1a;
+    border-color: #ffcc33;
+}
+
+.btn-volver-inicio:hover {
+    background-color: #e6b800;
+    color: #1a1a1a;
 }
