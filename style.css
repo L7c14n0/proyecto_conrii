@@ -17,24 +17,6 @@
     font-display: swap; 
 }
 
-@font-face {
-    font-family: 'Monterchi Serif';
-    src: url('fuentes/Monterchi-Book-trial.woff2') format('woff2'),
-         url('fuentes/Monterchi-Book-trial.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap; 
-}
-
-@font-face {
-    font-family: 'Monterchi Serif';
-    src: url('fuentes/Monterchi-Extrabold-trial.woff2') format('woff2'),
-         url('fuentes/Monterchi-Extrabold-trial.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap; 
-}
-
 :root {
     /*paleta de colores oficial */
     --color-fondo: #1b5a64;      
@@ -43,7 +25,7 @@
     --color-blanco: #ffffff;     
     --color-texto: #1a1a1a;      
 
-   --fuente-titulos: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --fuente-titulos: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     --fuente-textos: 'Garet', sans-serif;
 }
 
@@ -54,6 +36,7 @@
     /* Le aplicamos Garet a toda la página por defecto */
     font-family: var(--fuente-textos);
     scroll-behavior: smooth;
+    scroll-margin-top: 50px;
 }
 
 body {
@@ -61,6 +44,7 @@ body {
     color: var(--color-texto);
     line-height: 1.6;
     overflow-x: hidden; 
+
 }
 
 /* Títulos con Monterchi Serif */
@@ -171,7 +155,7 @@ nav ul li a:hover {
 
 /* Secciones de Contenido */
 .content-section {
-    padding: 80px 10%;
+    padding: 130px 10% 80px 10%;
     text-align: center;
     border-bottom: 1px solid #f0f0f0; 
 }
@@ -219,10 +203,10 @@ nav ul li a:hover {
 .boton-charla {
     background-color: #2F7F88;
     color: white;
-    padding: 30px 20px;
+    padding: 20px 15px;
     text-decoration: none;
     border-radius: 8px;
-    font-weight: bold;
+    font-weight: normal;
     transition: transform 0.3s, background-color 0.3s;
     border: 2px solid transparent;
 }
@@ -230,10 +214,12 @@ nav ul li a:hover {
 .boton-charla-especial {
     background-color: #053036;
     color: white;
-    padding: 30px 20px;
+    padding: 20px 15px;
+    font-size: 1.0rem;
+    word-wrap: break-word;
     text-decoration: none;
     border-radius: 8px;
-    font-weight: bold;
+    font-weight: normal;
     transition: transform 0.3s, background-color 0.3s;
     border: 2px solid transparent;
 }
@@ -593,33 +579,29 @@ form button:hover {
 
 /* Responsive (celular,tablet, etc) */
 @media (max-width: 1024px) {
-    /* 1. Header: Logo a la izquierda, Hamburguesa a la derecha */
+
     nav {
         display: flex !important;
-        justify-content: space-between !important;
+        justify-content: center !important;
         align-items: center !important;
-        padding: 10px 3% !important;
-        gap:10px !important; 
+        padding: 10px 20px 3% !important;
+        position: relative
+        gap: 10px !important; 
     }
 
-    /* 2. Logo visible a la izquierda con degradado amarillo/blanco */
+    /* Logo al centro con degradado*/
     .logo {
-       display: inline-block !important;
+        display: inline-block !important;
         position: static !important;
         transform: none !important;
-       font-size: clamp(1rem, 4vw, 1.3rem) !important;
+        font-size: clamp(1rem, 4vw, 1.3rem) !important;
         white-space: nowrap;
         text-align: left;
         margin-left: 0 !important;
         flex-shrink: 0;
-
-        /* Estado normal: Blanco puro y limpio */
         color: #ffffff !important;
-        background: none !important;
-        -webkit-text-fill-color: #ffffff !important;
-        -webkit-background-clip: border-box !important;
-        transition: color 0.2s ease;
-        order:1; 
+        transition: all 0.3s ease;
+        order: 1; 
     }
 
     .logo:active,
@@ -633,17 +615,20 @@ form button:hover {
         background-size: 200% auto !important;
         -webkit-background-clip: text !important;
         -webkit-text-fill-color: transparent !important;
-        animation: brilloMetalico 0.6s ease forwards !important; 
+        animation: brilloMetalico 2.0s linear infinite !important; 
     }
+
     /* 3. Botón menú hamburguesa a la derecha */
     .menu-toggle {
         display: block;
+        position: absolute;
+        left: 40px;
         background: none;
         color: white;
         font-size: 1.8rem;
         padding: 5px 12px;
         cursor: pointer;
-        border: 1px solid rgba(255, 255, 255, 0.4);
+        border: 0px solid rgba(255, 255, 255, 0.4);
         border-radius: 5px;
         order: 3;
     }
@@ -667,7 +652,18 @@ form button:hover {
         flex-direction: column;
         align-items: center;
         gap: 15px;
-        animation: slideDown 0.3s ease-out;
+        animation: slideDownMenu 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    }
+    
+    @keyframes slideDownMenu {
+        0% { 
+            opacity: 0; 
+            transform: translateY(-30px); /* Arranca un poco más arriba */
+        }
+        100% { 
+            opacity: 1; 
+            transform: translateY(0); /* Termina en su posición natural */
+        }
     }
 
     nav ul li {
@@ -686,6 +682,8 @@ form button:hover {
 
     .contenedor-contacto,
     .logo-header {
+        position: absolute !important;
+        right: 20px;
         display: flex !important;
         justify-content: center;
         align-items: center;
@@ -708,7 +706,11 @@ form button:hover {
     }
 
     .hero h1 {
-        display: none; 
+        display: block; /* Obliga al título a volver a aparecer */
+        font-size: clamp(1.4rem, 4.5vw, 2.2rem); /* Achica dinámicamente la letra según el ancho del celular */
+        line-height: 1.3; /* Junta un poco los renglones */
+        padding: 0 15px; /* Evita que las letras toquen los bordes de la pantalla */
+        margin-bottom: 20px;
     }
 
     .hero p {
@@ -739,7 +741,7 @@ form button:hover {
 
     .grid-charlas {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+        grid-template-columns: 1fr; 
         gap: 15px;
         margin-top: 30px;
     }
@@ -751,7 +753,7 @@ form button:hover {
         font-size: 0.95rem;
         text-decoration: none;
         border-radius: 8px;
-        font-weight: bold;
+        font-weight: normal;
         transition: transform 0.3s, background-color 0.3s;
         border: 2px solid transparent;
     }
@@ -762,7 +764,7 @@ form button:hover {
         font-size: 0.95rem;
         text-decoration: none;
         border-radius: 8px;
-        font-weight: bold;
+        font-weight: normal;
         transition: transform 0.3s, background-color 0.3s;
         border: 2px solid transparent;
     }
