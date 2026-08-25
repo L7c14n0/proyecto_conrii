@@ -275,13 +275,35 @@ form button:hover {
     background-color: #004080;
 }
 
-/* Footer */
 .footer-principal {
     background-color: #000;
     color: #fff;
-    text-align: center; /* Centra el texto de derechos de autor */
+    text-align: center;
     padding: 20px;
     width: 100%;
+}
+
+.btn-instagram {
+    display: inline-flex;
+    align-items:center;
+    gap: 8px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    transform: translateY(20px);
+}
+
+.btn-instagram:hover {
+    color: #f1c40f; 
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.btn-instagram svg {
+    transition: stroke 0.3s ease;
 }
 
 /* Estenedor del Mapa */

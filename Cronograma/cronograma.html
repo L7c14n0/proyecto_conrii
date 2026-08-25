@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronograma - CONRII 2026</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="cronograma.css"> 
+</head>
+<body>
+
+    
+    <header class="header">
+    <nav class="nav-cronograma">
+        <a class="logo-brand">
+            <img src="../img/logo_conrrii.png"  class="logo-img">
+        </a>
+        <a href="../index.html" class="btn-volver">Volver al inicio</a>
+    </nav>
+    </header>
+
+    <!-- Encabezado de la Sección -->
+    <section class="cronograma-hero">
+        <h1>Cronograma de Actividades</h1>
+        <p>Conoce los horarios y exposiciones programadas para el 1 y 2 de Octubre de 2026.</p>
+    </section>
+
+    <main class="cronograma-container">
+        <!-- Selector de Días -->
+        <div class="dias-tabs">
+            <button class="tab-btn active" onclick="mostrarDia('dia1', this)">
+                <span>Día 1</span>
+                <small>Jueves 1 de Octubre</small>
+            </button>
+            <button class="tab-btn" onclick="mostrarDia('dia2', this)">
+                <span>Día 2</span>
+                <small>Viernes 2 de Octubre</small>
+            </button>
+        </div>
+
+        <!-- CONTENIDO DÍA 1 -->
+        <div id="dia1" class="timeline-content active">
+            
+            <div class="timeline-item bloque-especial">
+                <div class="time">08:30 - 09:30</div>
+                <div class="card">
+                    <span class="categoria acreditacion">General</span>
+                    <h3>Acreditación y Bienvenida</h3>
+                    <p>Entrega de credenciales y material del evento.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time">09:30 - 11:00</div>
+                <div class="card">
+                    <span class="categoria magistral">Conferencia Magistral</span>
+                    <h3>Apertura Oficial CONRII 2026</h3>
+                    <p class="expositor">🎤 Dr. Alejandro Rossi</p>
+                    <p>Desafíos de la integración regional e innovación industrial.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item bloque-receso">
+                <div class="time">11:00 - 11:30</div>
+                <div class="card">
+                    <h3>Coffee Break ☕</h3>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time">11:30 - 13:00</div>
+                <div class="card">
+                    <span class="categoria ponencias">Mesa de Ponencias</span>
+                    <h3>Transformación Digital e Industria 4.0</h3>
+                    <p class="expositor">👥 Panel de Investigadores</p>
+                    <p>Presentación de trabajos seleccionados sobre automatización y software.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item bloque-receso">
+                <div class="time">13:00 - 14:30</div>
+                <div class="card">
+                    <h3>Receso / Almuerzo 🍽️</h3>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time">14:30 - 16:30</div>
+                <div class="card">
+                    <span class="categoria taller">Taller Práctico</span>
+                    <h3>Optimización de Procesos y Gestión de Datos</h3>
+                    <p class="expositor">🎤 Ing. Mariana Gómez</p>
+                    <p>Actividad interactiva en sala de cómputo.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CONTENIDO DÍA 2 -->
+        <div id="dia2" class="timeline-content">
+            
+            <div class="timeline-item">
+                <div class="time">09:00 - 10:30</div>
+                <div class="card">
+                    <span class="categoria ponencias">Mesa de Ponencias</span>
+                    <h3>Sostenibilidad y Logística Global</h3>
+                    <p class="expositor">👥 Panel de Expositores</p>
+                    <p>Estrategias sustentables para la cadena de suministro.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item bloque-receso">
+                <div class="time">10:30 - 11:00</div>
+                <div class="card">
+                    <h3>Coffee Break ☕</h3>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time">11:00 - 12:30</div>
+                <div class="card">
+                    <span class="categoria especial">Charla Especial</span>
+                    <h3>Mesa Redonda: Universidad e Industria</h3>
+                    <p class="expositor">🎤 Autoridades y Líderes del Sector</p>
+                    <p>Debate abierto sobre inserción laboral y proyectos de I+D.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item bloque-receso">
+                <div class="time">12:30 - 14:00</div>
+                <div class="card">
+                    <h3>Receso / Almuerzo 🍽️</h3>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time">14:00 - 16:00</div>
+                <div class="card">
+                    <span class="categoria magistral">Conferencia Magistral</span>
+                    <h3>Cierre: Futuro de la Ingeniería de Software en el Cono Sur</h3>
+                    <p class="expositor">🎤 Dra. Beatriz Fernández</p>
+                </div>
+            </div>
+
+            <div class="timeline-item bloque-especial">
+                <div class="time">16:00 - 17:00</div>
+                <div class="card">
+                    <span class="categoria cierre">Acto Final</span>
+                    <h3>Entrega de Certificados y Clausura</h3>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Script simple para alternar días -->
+    <script>
+        function mostrarDia(diaId, elemento) {
+            // Ocultar todos los bloques de contenido
+            document.querySelectorAll('.timeline-content').forEach(el => el.classList.remove('active'));
+            // Desactivar todos los botones
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            // Mostrar el seleccionado y activar su botón
+            document.getElementById(diaId).classList.add('active');
+            elemento.classList.add('active');
+        }
+    </script>
+</body>
+</html>
