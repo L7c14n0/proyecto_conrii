@@ -1,0 +1,66 @@
+/* --- HEADER DE PRESENTACIÓN --- */
+.header-presentacion {
+    margin-top: 100px; 
+    padding: 60px 10%;
+    background-color: #f4f8f9;
+    text-align: center;
+    border-bottom: 3px solid #2F7F88;
+}
+
+.header-presentacion h1 {
+    color: #1b5a64;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.header-presentacion h2 {
+    color: #2F7F88;
+    font-size: 1.8rem;
+}
+
+/* --- CONTENIDO DE PRESENTACIÓN --- */
+.contenido-presentacion {
+    padding: 50px 10%;
+    max-width: 1400px; 
+    margin: 0 auto;
+    text-align: justify;
+}
+
+.contenido-presentacion p {
+    margin-bottom: 25px;
+    font-size: 1.25rem; 
+    line-height: 1.8; 
+    color: #444;
+}
+
+.contenido-presentacion h3 {
+    color: #2F7F88;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 1.6rem; 
+}
+
+/* --- MENU Y BOTÓN DE PRESENTACIÓN --- */
+ul.menu-presentacion a.btn-volver-header {
+    display: inline-block !important;
+    font-size: 1.2rem !important; 
+    font-weight: normal !important; 
+    color: #ffffff !important;
+    background-color: transparent !important; 
+    border: none !important; 
+    padding: 10px !important;
+    transition: color 0.3s ease;
+}
+
+ul.menu-presentacion a.btn-volver-header:hover {
+    background-color: transparent !important;
+    color: #ffcc33 !important; 
+    transform: none !important; 
+}
+
+@media (min-width: 1025px) {
+    ul.menu-presentacion {
+        margin-left: auto !important;
+        margin-right: 0 !important;
+    }
+}

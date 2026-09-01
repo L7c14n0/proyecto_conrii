@@ -1,0 +1,120 @@
+/* --- ESTILOS PARA LAS PÁGINAS DE EJES Y PRESENTACIÓN --- */
+.header-eje {
+    margin-top: 100px;
+    padding: 60px 10%;
+    background-color: #f4f8f9;
+    text-align: center;
+    border-bottom: 3px solid #2F7F88;
+}
+
+.header-eje h1 {
+    color: #1b5a64;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.contenido-eje {
+    padding: 50px 10%;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+.contenido-eje p {
+    margin-bottom: 25px;
+    font-size: 1.25rem; 
+    line-height: 1.8; 
+    color: #444;
+}
+
+.contenido-eje h3 {
+    color: #2F7F88;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 1.6rem; 
+}
+
+.lista-temas {
+    margin-left: 20px;
+}
+
+.lista-temas li {
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    color: #333;
+    padding-left: 10px;
+}
+
+.lista-temas li::marker {
+    color: #2F7F88;
+    font-weight: bold;
+}
+
+/* --- BOTONES DE NAVEGACIÓN ENTRE EJES --- */
+.navegacion-ejes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 40px 10% 60px 10%;
+}
+
+.btn-nav-eje {
+    padding: 12px 20px;
+    background-color: transparent;
+    color: #2F7F88;
+    border: 2px solid #2F7F88;
+    border-radius: 8px;
+    text-decoration: none !important;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-nav-eje:hover, .btn-nav-eje.activo {
+    background-color: #2F7F88;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* Botón de Volver al Inicio abajo del todo */
+.btn-volver-inicio {
+    background-color: #ffcc33;
+    color: #1a1a1a;
+    border-color: #ffcc33;
+    font-size: 1.0rem;
+    padding: 12px 30px; 
+    font-weight: bold;
+    order: 10; 
+}
+
+.btn-volver-inicio:hover {
+    background-color: #e6b800;
+    color: #1a1a1a;
+    transform: translateY(-3px);
+}
+
+/* Botón de volver a inicio arriba en la página (Header) */
+#nav-menu a.btn-volver-header {
+    display: inline-block !important;
+    font-size: 1.2rem !important; 
+    font-weight: normal !important; 
+    color: var(--color-blanco) !important;
+    border: none !important; 
+    padding: 10px !important;
+    background-color: transparent !important;
+    transition: color 0.3s ease;
+}
+
+#nav-menu a.btn-volver-header:hover {
+    background-color: transparent !important;
+    color: var(--color-acento) !important; 
+    transform: none; 
+}
+
+/* Empuje del botón a la derecha en PC */
+@media (min-width: 1025px) {
+    ul#nav-menu.menu-ejes {
+        margin-left: auto !important;
+        margin-right: 0 !important;
+    }
+}

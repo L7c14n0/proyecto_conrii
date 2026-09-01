@@ -17,12 +17,6 @@
     font-display: swap; 
 }
 
-.btn-volver-header {
-    background-color: red !important;
-    border: 5px solid yellow !important;
-    color: white !important;
-}
-
 :root {
     /*paleta de colores oficial */
     --color-fondo: #1b5a64;      
@@ -198,12 +192,20 @@ nav ul li a:hover {
     width: 80px; 
 }
 
-/* Cuadrícula de Ejes Temáticos (Botones) */
+/* BOTONES DE EJES Y CHARLAS ESPECIALES */
 .grid-charlas {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     margin-top: 30px;
+}
+
+.grid-charlas-especiales {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 15px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .boton-charla {
@@ -217,7 +219,17 @@ nav ul li a:hover {
     border: 2px solid transparent;
 }
 
+.titulo-mesas-especiales {
+    margin-top: 100px;
+    margin-bottom: 30px;
+    font-size: 1.4rem;
+    color: #1b5a64;
+    font-weight: bold;
+}
+
 .boton-charla-especial {
+    margin-top: 60px;
+    margin-bottom: 10px;
     background-color: #053036;
     color: white;
     padding: 20px 15px;
@@ -228,6 +240,11 @@ nav ul li a:hover {
     font-weight: normal;
     transition: transform 0.3s, background-color 0.3s;
     border: 2px solid transparent;
+    display: flex;
+    flex-direction: column; /* Respeta el salto de línea del <br> y el <small> */
+    justify-content: center; /* Lo centra verticalmente */
+    align-items: center; /* Lo centra horizontalmente */
+    text-align: center; /* Asegura que las líneas de texto queden simétricas */
 }
 
 .boton-charla:hover {
@@ -787,6 +804,7 @@ form button:hover {
         transition: transform 0.3s, background-color 0.3s;
         border: 2px solid transparent;
     }
+
     .boton-charla-especial {
         background-color: #053036;
         color: white;
@@ -797,8 +815,8 @@ form button:hover {
         font-weight: normal;
         transition: transform 0.3s, background-color 0.3s;
         border: 2px solid transparent;
+        margin: 0 !important
     }
-    
 
     .content-section h2 {
         font-size: 1.8rem;
@@ -813,6 +831,28 @@ form button:hover {
 
     .boton-cronograma {
         padding: 10px 15px;
+    }
+
+    /* 1. Achicamos un poco el margen del título y la letra */
+    .titulo-mesas-especiales {
+        margin-top: 60px; /* Reduce el hueco blanco gigante en el celular */
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+    }
+
+    /* 2. Forzamos a que sea 1 sola columna en pantallas chicas */
+    .grid-charlas-especiales {
+        display: grid;
+        grid-template-columns: 1fr; /* Ocupa el 100% del ancho disponible */
+        gap: 15px;
+        width: 100%;
+        padding: 0 10px; /* Evita que el botón toque los bordes del teléfono */
+    }
+
+    /* 3. Adaptamos el interior del botón especial */
+    .boton-charla-especial {
+        padding: 15px 10px;
+        font-size: 0.95rem; /* Letra apenitas más chica para que no ocupe tantos renglones */
     }
 }
 
@@ -830,7 +870,6 @@ form button:hover {
         background-position: 200% center;
     }
 }
-
 
 .numeros {
     font-family: inherit !important;
@@ -852,119 +891,6 @@ form button:hover {
   height: 80px; /* Tamaño más grande para darles protagonismo institucional */
   width: auto;
   object-fit: contain; /* Evita que las imágenes se deformen */
-}
-
-/* --- ESTILOS PARA LAS PÁGINAS DE EJES --- */
-.header-eje {
-    margin-top: 100px;
-    padding: 60px 10%;
-    background-color: #f4f8f9;
-    text-align: center;
-    border-bottom: 3px solid #2F7F88;
-}
-
-.header-eje h1 {
-    color: #1b5a64;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.contenido-eje {
-    padding: 50px 10%;
-    max-width: 1400px;
-    margin: 0 auto;
-    text-align: justify;
-}
-
-.contenido-eje p {
-    margin-bottom: 25px;
-    font-size: 1.25rem; /* Aumenta el tamaño del texto usando rem */
-    line-height: 1.8; /* Da más aire entre renglones */
-    color: #444;
-}
-
-.contenido-eje h3 {
-    color: #2F7F88;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    font-size: 1.6rem; /* Subtítulos más grandes y proporcionales */
-}
-
-.lista-temas {
-    margin-left: 20px;
-}
-
-.lista-temas li {
-    margin-bottom: 12px;
-    font-size: 1.1rem;
-    color: #333;
-    padding-left: 10px;
-}
-
-.lista-temas li::marker {
-    color: #2F7F88;
-    font-weight: bold;
-}
-
-/* --- BOTONES DE NAVEGACIÓN ENTRE EJES --- */
-.navegacion-ejes {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    padding: 40px 10% 60px 10%;
-}
-
-.btn-nav-eje {
-    padding: 12px 20px;
-    background-color: transparent;
-    color: #2F7F88;
-    border: 2px solid #2F7F88;
-    border-radius: 8px;
-    text-decoration: none !important;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.btn-nav-eje:hover, .btn-nav-eje.activo {
-    background-color: #2F7F88;
-    color: #ffffff;
-    transform: translateY(-3px);
-}
-
-/* Botón de Volver al Inicio abajo del todo en la pagina */
-.btn-volver-inicio {
-    background-color: #ffcc33;
-    color: #1a1a1a;
-    border-color: #ffcc33;
-    font-size: 1.0rem;
-    padding: 12px 30px; 
-    font-weight: bold;
-    order: 10; 
-}
-
-.btn-volver-inicio:hover {
-    background-color: #e6b800;
-    color: #1a1a1a;
-    transform: translateY(-3px);
-}
-
-/* Boton de volver a inicio arriba en la pagina */
-#nav-menu a.btn-volver-header {
-    display: inline-block !important;
-    font-size: 1.2rem !important; /* Mismo tamaño que los enlaces del inicio */
-    font-weight: normal !important; /* Le sacamos la negrita */
-    color: var(--color-blanco) !important;
-    border: none !important; /* Sin recuadros */
-    padding: 10px !important;
-    background-color: transparent !important;
-    transition: color 0.3s ease;
-}
-
-#nav-menu a.btn-volver-header:hover {
-    background-color: transparent !important;
-    color: var(--color-acento) !important; /* Se pinta del amarillo oficial al pasar el mouse */
-    transform: none; /* Evita que se agrande */
 }
 
 /* Mantiene el texto empujado a la derecha en pantallas grandes */
