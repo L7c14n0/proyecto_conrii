@@ -1,66 +1,203 @@
-/* --- HEADER DE PRESENTACIÓN --- */
-.header-presentacion {
-    margin-top: 100px; 
-    padding: 60px 10%;
-    background-color: #f4f8f9;
-    text-align: center;
-    border-bottom: 3px solid #2F7F88;
-}
+/* --- HEADER INSTITUCIONAL --- */
 
-.header-presentacion h1 {
-    color: #1b5a64;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap'); 
 
-.header-presentacion h2 {
-    color: #2F7F88;
+
+.logo {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    text-decoration: none;
     font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    cursor: pointer;
+    position: relative;
+    color: #ffffff;
+    overflow: hidden;
+    margin-left: -30px;
 }
 
-/* --- CONTENIDO DE PRESENTACIÓN --- */
-.contenido-presentacion {
-    padding: 50px 10%;
-    max-width: 1400px; 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f8fafc;
+    width: 100%;
+    overflow-x: hidden; /* Evita cualquier desbordamiento horizontal */
+}
+
+
+.header-texto {
+    background-color: #2F7F88;
+    width: 100%; /* Ocupa todo el ancho de la ventana */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* 3. Contenedor interno que limita el contenido centrado */
+.nav-texto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4%;
+    height: 75px;
+    max-width: 100%; /* Permite abarcar todo el largo sin restricción previa */
     margin: 0 auto;
+}
+
+.nav-spacer {
+    width: 140px; 
+}
+
+/* Título de texto centrado */
+.logo-centrado {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+.nav-spacer {
+    width: 140px; 
+}
+
+.logo-header-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    transition: transform 0.2s ease;
+}
+
+.logo-centrado:hover .logo-header-img {
+    transform: scale(1.03);
+}
+
+.btn-volver {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 750;
+    font-size: 1.20rem;
+    padding: 8px 12px;
+    border-radius: 6px;
+    width: auto;
+    text-align: right;
+    white-space: nowrap;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-volver:hover {
+    color: #f1c40f;
+    transform: translateX(-3px);
+}
+
+/* --- HOJA EN BLANCO Y TEXTO LEGIBLE --- */
+body {
+    background-color: #f8fafc;
+}
+
+.contenedor-hoja {
+    max-width: 850px;
+    margin: 50px auto 90px;
+    padding: 0 20px;
+}
+
+.hoja-texto {
+    background-color: #ffffff;
+    padding: 50px 60px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.hoja-texto p {
+    color: #1e293b;
+    font-size: 1.125rem; /* ~18px para excelente legibilidad */
+    line-height: 1.8; /* Espaciado amplio entre líneas */
     text-align: justify;
+    hyphens: auto;
+    margin-bottom: 24px;
 }
 
-.contenido-presentacion p {
-    margin-bottom: 25px;
-    font-size: 1.25rem; 
-    line-height: 1.8; 
-    color: #444;
+.hoja-texto p:last-child {
+    margin-bottom: 0;
 }
 
-.contenido-presentacion h3 {
-    color: #2F7F88;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    font-size: 1.6rem; 
+/* --- FOOTER NEGRO --- */
+.footer-negro {
+    background-color: #000000;
+    width: 100%;
+    padding: 20px 0;
 }
 
-/* --- MENU Y BOTÓN DE PRESENTACIÓN --- */
-ul.menu-presentacion a.btn-volver-header {
-    display: inline-block !important;
-    font-size: 1.2rem !important; 
-    font-weight: normal !important; 
-    color: #ffffff !important;
-    background-color: transparent !important; 
-    border: none !important; 
-    padding: 10px !important;
-    transition: color 0.3s ease;
+.footer-contenido-simple {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: flex;
+    justify-content: flex-start;
 }
 
-ul.menu-presentacion a.btn-volver-header:hover {
-    background-color: transparent !important;
-    color: #ffcc33 !important; 
-    transform: none !important; 
+.texto-derechos {
+    color: #d1d5db;
+    margin: 0;
+    font-size: 0.88rem;
+    transform: translateY(-4px); /* Eleva el texto */
 }
 
-@media (min-width: 1025px) {
-    ul.menu-presentacion {
-        margin-left: auto !important;
-        margin-right: 0 !important;
+/* Adaptación precisa para dispositivos móviles */
+@media (max-width: 768px) {
+    .nav-texto {
+        padding: 0 20px;
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Logo ajustado a la izquierda */
+    .logo {
+        position: static; /* Quita el posicionamiento absoluto */
+        transform: none;
+        margin-left: 0; /* Elimina el desfasaje negativo de escritorio */
+        font-size: 1.3rem; /* Tamaño óptimo para no empujar al botón */
+        letter-spacing: 1px;
+        white-space: nowrap;
+        text-decoration: none;
+        cursor: default;
+    }
+
+    /* Botón Volver al inicio más grande y a la derecha */
+    .btn-volver {
+        width: auto;
+        font-size: 1.05rem; /* Tamaño cómodo para tocar con el dedo */
+        font-weight: 600;
+        padding: 6px 0;
+        text-align: right;
+        white-space: nowrap;
+    }
+
+    /* Oculta el espaciador redundante */
+    .nav-spacer {
+        display: none;
+    }
+
+    /* Ajuste de la hoja de lectura */
+    .hoja-texto {
+        padding: 28px 20px;
+    }
+
+    .hoja-texto p {
+        font-size: 1rem;
+        text-align: left;
+        line-height: 1.7;
     }
 }
