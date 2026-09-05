@@ -30,7 +30,9 @@ body {
     width: 100%; 
     position: sticky;
     top: 0;
+    padding: 1.0rem 5%;
     z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
 .nav-texto {
@@ -125,6 +127,35 @@ body {
     margin: 0;
 }
 
+/* --- CONTENEDOR DE LOGOS INSTITUCIONALES --- */
+.contenedor-logos-institucionales {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    gap: clamp(30px, 5vw, 60px);
+    margin: 60px auto; /* Espacio por encima y por debajo del bloque de logos */
+    flex-wrap: wrap; /* Si no caben en la pantalla, pasan a la fila de abajo automáticamente */
+    padding: 0 20px;
+    max-width: 1000px;
+}
+
+/* --- ESTILO GENERAL DE LAS IMÁGENES --- */
+.logo-institucional {
+    height: clamp(85px, 12vw, 150px);
+    width: auto; 
+    object-fit: contain; /* Fundamental: evita que las imágenes se estiren o deformen */
+    transition: transform 0.3s ease; /* Transición suave para el hover */
+}
+
+/* Efecto de pequeño zoom al pasar el cursor */
+.logo-institucional:hover {
+    transform: scale(1.05); 
+}
+
+#logo-humanas {
+    height: 90px;
+}
+
 /* --- ADAPTACIÓN MÓVIL --- */
 @media (max-width: 768px) {
     .nav-texto {
@@ -151,5 +182,15 @@ body {
         font-size: 1rem;
         text-align: left; /* Alineación izquierda en móviles para mejor lectura */
         line-height: 1.7;
+    }
+
+    .contenedor-logos-institucionales {
+        gap: 40px; /* Achicamos el espacio vacío entre logos */
+        margin: 40px auto;
+        flex-direction: column; /* Apila los logos uno debajo del otro en teléfonos */
+    }
+
+    .logo-institucional {
+        height: 80px; /* Los reduce un poco para que no resulten invasivos en la pantalla */
     }
 }
