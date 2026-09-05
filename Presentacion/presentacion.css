@@ -1,8 +1,49 @@
-/* --- HEADER INSTITUCIONAL --- */
-
+/* --- IMPORTACIÓN DE FUENTES --- */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap'); 
 
+@font-face {
+    font-family: 'Garet';
+    src: url('fuentes/Garet-Book.woff2') format('woff2'),
+         url('fuentes/Garet-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; 
+}
 
+/* --- RESETEO GENERAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Garet', sans-serif; /* Garet para todo el texto por defecto */
+}
+
+body {
+    background-color: #f8fafc;
+    width: 100%;
+    overflow-x: hidden; 
+}
+
+/* --- HEADER INSTITUCIONAL --- */
+.header-texto {
+    background-color: #2F7F88;
+    width: 100%; 
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-texto {
+    display: flex;
+    justify-content: space-between; /* Mantiene el logo a la izquierda y el botón a la derecha */
+    align-items: center;
+    padding: 0 5%;
+    height: 75px;
+    max-width: 100%; 
+    margin: 0 auto;
+}
+
+/* Logo alineado a la izquierda */
 .logo {
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     text-decoration: none;
@@ -10,88 +51,23 @@
     font-weight: 800;
     letter-spacing: 3px;
     cursor: pointer;
-    position: relative;
     color: #ffffff;
-    overflow: hidden;
-    margin-left: -30px;
+    /* Se elimina el margin-left negativo y el position relative para que fluya natural */
 }
 
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #f8fafc;
-    width: 100%;
-    overflow-x: hidden; /* Evita cualquier desbordamiento horizontal */
-}
-
-
-.header-texto {
-    background-color: #2F7F88;
-    width: 100%; /* Ocupa todo el ancho de la ventana */
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-/* 3. Contenedor interno que limita el contenido centrado */
-.nav-texto {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 4%;
-    height: 75px;
-    max-width: 100%; /* Permite abarcar todo el largo sin restricción previa */
-    margin: 0 auto;
-}
-
+/* Ya no necesitamos nav-spacer si usamos space-between y quitamos el centrado forzado */
 .nav-spacer {
-    width: 140px; 
-}
-
-/* Título de texto centrado */
-.logo-centrado {
-    color: #ffffff;
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin: 0;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-
-.nav-spacer {
-    width: 140px; 
-}
-
-.logo-header-img {
-    height: 50px;
-    width: auto;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
-    transition: transform 0.2s ease;
-}
-
-.logo-centrado:hover .logo-header-img {
-    transform: scale(1.03);
+    display: none; 
 }
 
 .btn-volver {
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Garet', sans-serif;
     color: #ffffff;
     text-decoration: none;
-    font-weight: 750;
-    font-size: 1.20rem;
+    font-weight: normal;
+    font-size: 1.20rem; /* Ajuste sutil del tamaño */
     padding: 8px 12px;
     border-radius: 6px;
-    width: auto;
-    text-align: right;
-    white-space: nowrap;
     transition: color 0.3s ease, transform 0.2s ease;
 }
 
@@ -101,10 +77,6 @@ body {
 }
 
 /* --- HOJA EN BLANCO Y TEXTO LEGIBLE --- */
-body {
-    background-color: #f8fafc;
-}
-
 .contenedor-hoja {
     max-width: 850px;
     margin: 50px auto 90px;
@@ -119,9 +91,10 @@ body {
 }
 
 .hoja-texto p {
+    font-family: 'Garet', sans-serif;
     color: #1e293b;
-    font-size: 1.125rem; /* ~18px para excelente legibilidad */
-    line-height: 1.8; /* Espaciado amplio entre líneas */
+    font-size: 1.125rem; 
+    line-height: 1.8; 
     text-align: justify;
     hyphens: auto;
     margin-bottom: 24px;
@@ -143,61 +116,40 @@ body {
     margin: 0 auto;
     padding: 0 5%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center; /* Centra el texto del footer */
 }
 
 .texto-derechos {
+    font-family: 'Garet', sans-serif; /* Aplica Garet al footer */
     color: #d1d5db;
     margin: 0;
-    font-size: 0.88rem;
-    transform: translateY(-4px); /* Eleva el texto */
 }
 
-/* Adaptación precisa para dispositivos móviles */
+/* --- ADAPTACIÓN MÓVIL --- */
 @media (max-width: 768px) {
     .nav-texto {
         padding: 0 20px;
         height: 70px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
     }
 
-    /* Logo ajustado a la izquierda */
     .logo {
-        position: static; /* Quita el posicionamiento absoluto */
-        transform: none;
-        margin-left: 0; /* Elimina el desfasaje negativo de escritorio */
-        font-size: 1.3rem; /* Tamaño óptimo para no empujar al botón */
+        font-size: 1.3rem; 
         letter-spacing: 1px;
-        white-space: nowrap;
-        text-decoration: none;
-        cursor: default;
     }
 
-    /* Botón Volver al inicio más grande y a la derecha */
     .btn-volver {
-        width: auto;
-        font-size: 1.05rem; /* Tamaño cómodo para tocar con el dedo */
-        font-weight: 600;
+        font-size: 1.05rem; 
+        font-weight: normal; 
         padding: 6px 0;
-        text-align: right;
-        white-space: nowrap;
     }
 
-    /* Oculta el espaciador redundante */
-    .nav-spacer {
-        display: none;
-    }
-
-    /* Ajuste de la hoja de lectura */
     .hoja-texto {
         padding: 28px 20px;
     }
 
     .hoja-texto p {
         font-size: 1rem;
-        text-align: left;
+        text-align: left; /* Alineación izquierda en móviles para mejor lectura */
         line-height: 1.7;
     }
 }
