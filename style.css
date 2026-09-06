@@ -773,9 +773,10 @@ form button:hover {
     }
 
     .boton-pdf {
-        width: 45%;
-        padding: 10px 5%;
-        min-width: auto;
+        width: 100%;
+        max-width: 100% ;
+        padding: 8px 12px;
+        box-sizing: border-box;
     }
 
     .boton-pdf .icon {
@@ -784,7 +785,10 @@ form button:hover {
     }
 
     .boton-pdf .text {
-        font-size: 0.75rem;
+        font-size: 0.85rem;
+        text-align: center;
+        word-break: break-word;
+        white-space: normal; 
     }
 
     .grid-charlas {
