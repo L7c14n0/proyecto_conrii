@@ -127,37 +127,6 @@ body {
     margin: 0;
 }
 
-/* --- CONTENEDOR DE LOGOS INSTITUCIONALES --- */
-.contenedor-logos-institucionales {
-  display: flex;
-    flex-direction: row;      /* Organiza los logos en fila */
-    flex-wrap: nowrap;         /* Impide que bajen a una segunda línea */
-    justify-content: center;   /* Los centra horizontalmente */
-    align-items: center;       /* Alinea sus centros verticalmente */
-    gap: 40px;                 /* Espacio uniforme entre cada logo */
-    width: 100%;
-    max-width: 100%;
-    padding: 15px 20px;
-    box-sizing: border-box;
-}
-
-
-/* Comportamiento responsivo individual de cada logo */
-.logo-institucional {
-    height: auto;              /* Mantiene la proporción de aspecto */
-    max-height: 80px;          /* Altura máxima para pantallas de escritorio */
-    max-width: 30%;            /* Evita que un solo logo ocupe más de un tercio de la pantalla */
-    object-fit: contain;       /* Escala la imagen sin distorsionarla */
-    flex-shrink: 1;            /* Permite que las imágenes se achiquen si no hay espacio */
-}
-
-/* Efecto de pequeño zoom al pasar el cursor */
-.logo-institucional:hover {
-    transform: scale(1.05); 
-}
-
-
-
 /* --- ADAPTACIÓN MÓVIL --- */
 @media (max-width: 768px) {
     .nav-texto {
